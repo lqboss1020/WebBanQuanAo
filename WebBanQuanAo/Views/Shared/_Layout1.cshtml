@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Website Quần Áo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/SanPhams/List">Trang chủ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/khachhangss/Create">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/khachhangs1/Login">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Session["Username"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/khachhangs/Logout">Logout</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Danh Mục
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.Action("Menu", "DanhMucs")
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ShoppingCart/Index">Giỏ hàng</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/Sanphams/List">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="TenSP" id="TenSP" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    @RenderBody()
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>

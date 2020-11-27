@@ -1,0 +1,36 @@
+﻿@using System.Configuration
+@using WebBanQuanAo.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@{
+    var ds = Session["Cart"] as List<Cart>;
+}
+<center>Thanh Toán Trực Tuyến</center>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div>
+            <form action="@ConfigurationManager.AppSettings["urlSubmitPayment"]">
+                <input type="hidden" name="cmd" value="_cart" />
+                <input type="hidden" name="upload" value="1" />
+                <input type="hidden" name="return" value="@ConfigurationManager.AppSettings["urlReturn"]" />
+                <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["accountBusiness"]" />
+                @for (int i = 0; i < ds.Count; i++)
+                {
+                    <input type="hidden" name="@Url.Content("item_name_"+(i+1))" value="@ds[i].SanPham.TenSP" />
+                    <input type="hidden" name="@Url.Content("item_number_"+(i+1))" value="@ds[i].SanPham.MaSP" />
+                    <input type="hidden" name="@Url.Content("amount_"+(i+1))" value="@ds[i].SanPham.GiaSP" />
+                    <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].Quantity" />
+                }
+
+                <button type="submit" class="btn btn-danger">
+                    <img src="~/Images/PayPal-Logo.png" style="height:150px;width:150px;" />
+                </button>
+                <img src="~/Images/MoMo_Logo.png" style="height:150px;width:150px;" />
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>

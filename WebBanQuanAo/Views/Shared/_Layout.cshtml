@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/sanphams/index" class="nav-link">Chi nhánh 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sanphams/index" class="nav-link">Quản lý sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/danhmucs/index" class="nav-link">Quản lý danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/nhacungcaps/index" class="nav-link">Quản lý nhà cung cấp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/khachhangs/index" class="nav-link">Quản lý khách hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/chinhanhs/index" class="nav-link">Quản lý chi nhánh</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

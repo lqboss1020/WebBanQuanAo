@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebBanQuanAo.Models.SanPham>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>List</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3" style="margin-top:10px;">
+            <div class="card">
+                <img class="card-img-top" src="~/Images/@item.HinhSP" style="width:100%" />
+                <h3 style="text-align:center" class="card-title">@item.TenSP</h3>
+                <h4 style="text-align:center; color:orange" class="card-text">@item.GiaSP</h4>
+                <a class="btn btn-danger" href="/ShoppingCart/Order?id=@item.MaSP">Thêm giỏ hàng</a>
+            </div>
+        </div>
+    }
+</div>

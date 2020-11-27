@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a69ced13312d430684096a772a5bf821" Name="Diagram1">
+        <EntityTypeShape EntityType="WebQA2Model.Admin" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.ChiNhanh" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.ChiTietDonHang" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.DanhMuc" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.DonHang" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.KhachHang" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.NhaCungCap" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.NhanVien" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.SanPham" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebQA2Model.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="WebQA2Model.FK__NhanVien__MaCN__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK_ChiTietDonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK_ChiTietDonHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK__SanPham__MaDM__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK__DonHang__MaKH__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK__DonHang__MaNV__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="WebQA2Model.FK__SanPham__MaNCC__21B6055D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

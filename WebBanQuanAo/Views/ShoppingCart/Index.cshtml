@@ -1,0 +1,67 @@
+﻿@using WebBanQuanAo.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@model IEnumerable<WebBanQuanAo.Models.Cart>
+<link href="~/Content/indexgiohang.css" rel="stylesheet" />
+@{
+    int tong = 0;
+}
+
+<Center><h2>Giỏ Hàng</h2></Center>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <table class="table table-hover table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SanPham.TenSP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SanPham.HinhSP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SanPham.GiaSP)
+                </th>
+                <th>Số Lượng</th>
+                <th>Thành Tiền</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in (List<Cart>)Session["Cart"])
+            {
+                tong = tong + (item.Quantity * item.SanPham.GiaSP.Value);
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Sach.ItemImageName)*@
+                        <img class="rounded" src="/Images/@item.SanPham.HinhSP" style="height:100px;width:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SanPham.GiaSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @(item.Quantity*item.SanPham.GiaSP)
+                    </td>
+                    <td>
+                        <a href="/cart/Xoa?id=@item.SanPham.MaSP" class="btn btn-danger">Xoá</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <center><h5>Tổng Tiền : $ @tong</h5></center>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+<center>
+
+    <a href="/Sanphams/List" class="btn btn-warning">Quay về</a>
+    <a href="/ShoppingCart/Clear" class="btn btn-danger">Xóa giỏ hàng</a>
+    <a href="/PayPal/Index" class="btn btn-success">Thanh toán PayPal</a>
+</center>
