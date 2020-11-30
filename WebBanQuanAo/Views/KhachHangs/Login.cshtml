@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>Login</h2>
+<center><h2>Đăng Nhập</h2></center>
 
 <div class="row">
     <div class="col-sm-4">
@@ -14,8 +14,8 @@
         @using (Html.BeginForm("Login", "Khachhangs", FormMethod.Post))
         {
             <div class="form-group">
-                <label for="uname">Username:</label>
-                <input type="text" class="form-control" id="Username" placeholder="Enter username" name="Username" required>
+                <label for="uname">Email:</label>
+                <input type="text" class="form-control" id="Email" placeholder="Enter Email" name="Email" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>

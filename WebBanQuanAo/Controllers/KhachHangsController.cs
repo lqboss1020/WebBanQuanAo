@@ -128,9 +128,9 @@ namespace WebBanQuanAo.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string Username, string password)
+        public ActionResult Login(string Email, string password)
         {
-            var kh = db.KhachHangs.Where(s => s.TenKH == Username && s.MatKhau == password).FirstOrDefault();
+            var kh = db.KhachHangs.Where(s => s.Email == Email && s.MatKhau == password).FirstOrDefault();
             if (kh != null)
             {
                 string a = "Tên tài khoản : " + kh.TenKH;

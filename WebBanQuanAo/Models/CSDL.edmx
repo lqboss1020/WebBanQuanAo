@@ -58,10 +58,10 @@
           <Property Name="TenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="SoDT" Type="nvarchar" MaxLength="50" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
           <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="NhaCungCap">
           <Key>
@@ -69,7 +69,7 @@
           </Key>
           <Property Name="MaNCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenNCC" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
           <Property Name="SoDT" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -294,9 +294,9 @@
           <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__MaKH__20C1E124" FromRole="KhachHang" ToRole="DonHang" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -306,7 +306,7 @@
           </Key>
           <Property Name="MaNCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SoDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SanPhams" Relationship="Self.FK__SanPham__MaNCC__21B6055D" FromRole="NhaCungCap" ToRole="SanPham" />

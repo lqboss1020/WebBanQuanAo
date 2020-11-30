@@ -7,7 +7,7 @@
 @{
     var ds = Session["Cart"] as List<Cart>;
 }
-<center>Thanh Toán Trực Tuyến</center>
+<center><h1>Thanh Toán Trực Tuyến</h1></center>
 <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
@@ -24,11 +24,22 @@
                     <input type="hidden" name="@Url.Content("amount_"+(i+1))" value="@ds[i].SanPham.GiaSP" />
                     <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].Quantity" />
                 }
-
-                <button type="submit" class="btn btn-danger">
-                    <img src="~/Images/PayPal-Logo.png" style="height:150px;width:150px;" />
-                </button>
-                <img src="~/Images/MoMo_Logo.png" style="height:150px;width:150px;" />
+                <div class="row">
+                    <div class="col-sm-3" style="margin:10px;">
+                        <button type="submit" class="btn">
+                            <img src="~/Images/PayPal-Logo.png" style="height:150px;width:150px;" />
+                        </button>
+                    </div>
+                    <div class="col-sm-3" style="margin:10px;">
+                        @*<img src="~/Images/momo.jpg" style="height:150px;width:150px;" />*@
+                    </div>
+                    <div class="col-sm-3" style="margin:10px;">
+                        <a>
+                            <img src="~/Images/cod.png" style="height:150px;width:150px;" />
+                            Thanh toán khi giao hàng
+                        </a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
