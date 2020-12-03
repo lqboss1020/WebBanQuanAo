@@ -8,55 +8,41 @@
 </figure>
 <link href="~/Content/hightchart.css" rel="stylesheet" />
 <script>
-    Highcharts.chart('container', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Thống kê quần áo bán chạy'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+    $.getJSON("/Home/GetData", function (data) {
+        Highcharts.chart('container', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Top sản phẩm bán chạy nhất'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
                 }
-            }
-        },
-        series: [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: [{
-                name: 'ÁO THUN W2ATN110008',
-                y: 61.41,
-                sliced: true,
-                selected: true
-            }, {
-                    name: 'ÁO KHOÁC D1AKD100001',
-                y: 11.84
-            }, {
-                    name: 'ÁO KHOÁC W2AKN100001',
-                y: 10.85
-            }, {
-                    name: 'HOODIE NAM 118002MGN',
-                y: 4.67
-            }, {
-                name: 'Other',
-                y: 2.61
-            }]
-        }]
-    });
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: 'Brands',
+                    colorByPoint: true,
+                    data: data
+                }]
+        }); });
+    
 </script>

@@ -21,8 +21,8 @@ namespace WebBanQuanAo.Models
         }
     
         public int MaDH { get; set; }
-        public int MaKH { get; set; }
-        public int MaNV { get; set; }
+        public Nullable<int> MaKH { get; set; }
+        public Nullable<int> MaNV { get; set; }
         public string TenNguoiNhan { get; set; }
         public string SoDT { get; set; }
         public string DiaChi { get; set; }

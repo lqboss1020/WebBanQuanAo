@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 @{
-    var ds = Session["Cart"] as List<Cart>;
+    var ds = Session["ChiTietDonHang"] as List<ChiTietDonHang>;
 }
 <center><h1>Thanh Toán Trực Tuyến</h1></center>
 <div class="row">
@@ -22,7 +22,7 @@
                     <input type="hidden" name="@Url.Content("item_name_"+(i+1))" value="@ds[i].SanPham.TenSP" />
                     <input type="hidden" name="@Url.Content("item_number_"+(i+1))" value="@ds[i].SanPham.MaSP" />
                     <input type="hidden" name="@Url.Content("amount_"+(i+1))" value="@ds[i].SanPham.GiaSP" />
-                    <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].Quantity" />
+                    <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].SoLuong" />
                 }
                 <div class="row">
                     <div class="col-sm-3" style="margin:10px;">
@@ -34,7 +34,7 @@
                         @*<img src="~/Images/momo.jpg" style="height:150px;width:150px;" />*@
                     </div>
                     <div class="col-sm-3" style="margin:10px;">
-                        <a>
+                        <a href="/DonHangs/HoaDon">
                             <img src="~/Images/cod.png" style="height:150px;width:150px;" />
                             Thanh toán khi giao hàng
                         </a>

@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -17,11 +18,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="/sanphams/index" class="nav-link">Chi nhánh </a>
+                        <a href="/sanphams/list" class="nav-link">Web Chi nhánh </a>
                     </li>
-                    @*<li class="nav-item">
-                        <a href="/sanphams/index" class="nav-link">Chi nhánh 2</a>
-                    </li>*@
                     <li class="nav-item">
                         <a href="/sanphams/index" class="nav-link">Quản lý sản phẩm</a>
                     </li>
@@ -52,7 +50,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

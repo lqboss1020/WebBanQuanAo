@@ -17,8 +17,14 @@ namespace WebBanQuanAo.Models
         public int MaSP { get; set; }
         public int MaDonHang { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public Nullable<int> TongTien { get; set; }
     
         public virtual DonHang DonHang { get; set; }
         public virtual SanPham SanPham { get; set; }
+        public ChiTietDonHang() { }
+        public ChiTietDonHang(SanPham sanpham,int soLuong) {
+            this.SanPham = sanpham;
+            this.SoLuong = soLuong;
+        }
     }
 }

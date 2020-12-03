@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-@model IEnumerable<WebBanQuanAo.Models.Cart>
+@model IEnumerable<WebBanQuanAo.Models.ChiTietDonHang>
 <link href="~/Content/indexgiohang.css" rel="stylesheet" />
 @{
     int tong = 0;
@@ -29,9 +29,9 @@
                 <th></th>
             </tr>
 
-            @foreach (var item in (List<Cart>)Session["Cart"])
+            @foreach (var item in (List<ChiTietDonHang>)Session["ChiTietDonHang"])
             {
-                tong = tong + (item.Quantity * item.SanPham.GiaSP.Value);
+                tong = tong + (item.SoLuong.Value * item.SanPham.GiaSP.Value);
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.SanPham.TenSP)
@@ -44,10 +44,10 @@
                         @Html.DisplayFor(modelItem => item.SanPham.GiaSP)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
+                        @Html.DisplayFor(modelItem => item.SoLuong)
                     </td>
                     <td>
-                        @(item.Quantity*item.SanPham.GiaSP)
+                        @(item.SoLuong*item.SanPham.GiaSP)
                     </td>
                     <td>
                         <a href="/cart/Xoa?id=@item.SanPham.MaSP" class="btn btn-danger">Xoá</a>
@@ -60,7 +60,6 @@
     <div class="col-sm-3"></div>
 </div>
 <center>
-
     <a href="/Sanphams/List" class="btn btn-warning">Quay về</a>
     <a href="/ShoppingCart/Clear" class="btn btn-danger">Xóa giỏ hàng</a>
     <a href="/PayPal/Index" class="btn btn-success">Thanh toán</a>

@@ -8,11 +8,10 @@ namespace WebBanQuanAo.Controllers
     public class ShoppingCartController : Controller
     {
         private WebQA2Entities db = new WebQA2Entities();
-        string scart = "Cart";
-        // GET: ShoppingCart
+        string sChiTietDonHang = "ChiTietDonHang";
+        // GET: ShoppingChiTietDonHang
         public ActionResult Index()
         {
-          
             return View();
         }
         public ActionResult Del(int? id)
@@ -22,54 +21,54 @@ namespace WebBanQuanAo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             int check = isExistingCheck(id);
-            var carts = (List<Cart>)Session[scart];
-            carts.RemoveAt(check);
+            var ChiTietDonHangs = (List<ChiTietDonHang>)Session[sChiTietDonHang];
+            ChiTietDonHangs.RemoveAt(check);
             return View("index");
         }
         public ActionResult Clear()
         {
-            Session.Remove(scart);
-            return RedirectToAction("list","SanPhams");
+            Session.Remove(sChiTietDonHang);
+            return RedirectToAction("list", "SanPhams");
         }
         public ActionResult Order(int? id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             else
             {
-                if (Session[scart]==null)
+                if (Session[sChiTietDonHang] == null)
                 {
-                    List<Cart> carts = new List<Cart>
+                    List<ChiTietDonHang> ChiTietDonHangs = new List<ChiTietDonHang>
                     {
-                       new Cart(db.SanPhams.Find(id),1)
+                       new ChiTietDonHang(db.SanPhams.Find(id),1)
                     };
-                    Session[scart] = carts;
+                    Session[sChiTietDonHang] = ChiTietDonHangs;
                 }
                 else
                 {
-                    var cart =(List<Cart>) Session[scart];
+                    var ChiTietDonHang = (List<ChiTietDonHang>)Session[sChiTietDonHang];
                     int check = isExistingCheck(id);
                     if (check == -1)
                     {
-                        cart.Add(new Cart(db.SanPhams.Find(id), 1));
+                        ChiTietDonHang.Add(new ChiTietDonHang(db.SanPhams.Find(id), 1));
                     }
                     else
                     {
-                        cart[check].Quantity++;
-                    } 
-                    Session[scart] = cart;
+                        ChiTietDonHang[check].SoLuong++;
+                    }
+                    Session[sChiTietDonHang] = ChiTietDonHang;
                 }
                 return RedirectToAction("index");
             }
         }
         private int isExistingCheck(int? id)
         {
-            List<Cart> carts = Session[scart] as List<Cart>;
-            for (int i = 0; i < carts.Count; i++)
+            List<ChiTietDonHang> ChiTietDonHangs = Session[sChiTietDonHang] as List<ChiTietDonHang>;
+            for (int i = 0; i < ChiTietDonHangs.Count; i++)
             {
-                if (carts[i].SanPham.MaSP==id)
+                if (ChiTietDonHangs[i].SanPham.MaSP == id)
                 {
                     return i;
                 }

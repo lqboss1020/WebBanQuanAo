@@ -25,9 +25,9 @@ namespace WebBanQuanAo.Models
         public string Email { get; set; }
         public string SoDT { get; set; }
         public string GioiTinh { get; set; }
+        public string UserName { get; set; }
         public string MatKhau { get; set; }
         public string DiaChi { get; set; }
-        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }

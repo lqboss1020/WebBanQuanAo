@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using WebBanQuanAo.Models;
 
@@ -135,6 +132,7 @@ namespace WebBanQuanAo.Controllers
             {
                 string a = "Tên tài khoản : " + kh.TenKH;
                 Session["Username"] = a;
+                Session["MaKH"] = kh.MaKH;
                 return RedirectToAction("List", "SanPhams");
             }
             return View();
