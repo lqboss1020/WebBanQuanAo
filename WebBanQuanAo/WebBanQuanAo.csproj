@@ -211,6 +211,7 @@
     <Content Include="Images\3.JPG" />
     <Content Include="Images\4.JPG" />
     <Content Include="Images\5.JPG" />
+    <Content Include="Images\a.jpg" />
     <Content Include="Images\cart.png" />
     <Content Include="Images\PayPal-Logo.png" />
     <Content Include="Images\q1.PNG" />
