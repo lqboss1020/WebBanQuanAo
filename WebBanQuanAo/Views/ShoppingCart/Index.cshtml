@@ -7,8 +7,13 @@
 <link href="~/Content/indexgiohang.css" rel="stylesheet" />
 @{
     int tong = 0;
+    List<ChiTietDonHang> chiTietDonHang = new List<ChiTietDonHang>();
+    if (Session["ChiTietDonHang"] == null)
+    {
+        chiTietDonHang = new List<ChiTietDonHang>();
+        Session["ChiTietDonHang"] = chiTietDonHang;
+    }
 }
-
 <Center><h2>Giỏ Hàng</h2></Center>
 <div class="row">
     <div class="col-sm-3"></div>
@@ -50,7 +55,7 @@
                         @(item.SoLuong*item.SanPham.GiaSP)
                     </td>
                     <td>
-                        <a href="/cart/Xoa?id=@item.SanPham.MaSP" class="btn btn-danger">Xoá</a>
+                        <a href="/ShoppingCart/Del?id=@item.SanPham.MaSP" class="btn btn-danger">Xoá</a>
                     </td>
                 </tr>
             }

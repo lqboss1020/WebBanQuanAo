@@ -1,10 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using WebBanQuanAo.Models;
+<!DOCTYPE html>
 <html>
 <head>
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @{ 
+        List<ChiTietDonHang> chiTietDonHang = new List<ChiTietDonHang>();
+        if (Session["ChiTietDonHang"] == null)
+        {
+            chiTietDonHang = new List<ChiTietDonHang>();
+            Session["ChiTietDonHang"] = chiTietDonHang;
+        }
+        var gh = Session["ChiTietDonHang"] as List<ChiTietDonHang>;
+    }
 </head>
 
 <body>
@@ -74,7 +84,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ShoppingCart/Index">Giỏ hàng</a>
+                    <a class="nav-link" href="/ShoppingCart/Index">
+                        <img src="~/Images/cart.png" style="width:35px;height:30px;" /> @gh.Count
+                    </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/Sanphams/List">
