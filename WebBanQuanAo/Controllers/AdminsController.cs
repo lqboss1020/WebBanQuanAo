@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -118,6 +119,26 @@ namespace WebBanQuanAo.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Login(FormCollection f)
+        {
+            Admin admin = null;
+            string username = f["Username"];
+            string password = f["Password"];
+            admin = db.Admins.Where(s => s.Username == username && s.Password == password).FirstOrDefault();
+            if (admin != null)
+            {
+                Session["Admin"] = admin.Username;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                if (username!=null && password !=null)
+                {
+                    ViewBag.Thongbao = "Đăng Nhập thất bại";
+                }
+                return View();
+            }
         }
     }
 }

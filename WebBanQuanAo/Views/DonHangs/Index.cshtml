@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách đơn hàng</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.NhanVien.TenNV)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDH }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.MaDH }) |
             @Html.ActionLink("Details", "Details", new { id=item.MaDH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDH })
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaDH })*@
         </td>
     </tr>
 }

@@ -49,7 +49,7 @@ namespace WebBanQuanAo.Controllers
             {
                 db.KhachHangs.Add(khachHang);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             return View(khachHang);

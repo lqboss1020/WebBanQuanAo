@@ -7,69 +7,70 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>SanPham</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenSP)
-        </dt>
+<center>
+    <div>
+        <h4>SanPham</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenSP)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MauSac)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.MauSac)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MauSac)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.MauSac)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhSP)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhSP)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HinhSP)
-        </dd>
+            <dd>
+                @*@Html.DisplayFor(model => model.HinhSP)*@
+                <img src="~/Images/@Model.HinhSP" style="height:150px;width:150px;" />
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GiaSP)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaSP)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GiaSP)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.GiaSP)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DanhMuc.TenDM)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DanhMuc.TenDM)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
+            </dd>
+        </dl>
+        <a class="btn btn-success" href="/ShoppingCart/Order?id=@Model.MaSP">Thêm giỏ hàng</a>
+        <a class="btn btn-warning" href="/sanphams/list">Quay về</a>
+    </div>
+</center>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

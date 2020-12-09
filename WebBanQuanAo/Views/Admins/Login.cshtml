@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<br />
+<center>
+    
+    <div class="container">
+        <form method="post" action="/Admins/Login" style="background-color:dimgrey; width:500px;">
+            <h2>Admin</h2>
+            <input class="form-control" name="Username" id="Username" placeholder="Nhập tên tài khoản admin" required />
+            <br />
+            <input class="form-control" name="Password" id="Password" type="password" placeholder="Nhập mật khẩu" required />
+            <br />
+            <button type="submit" class="btn btn-success">Đăng Nhập</button>
+            <br />
+        </form>
+    </div>
+    <h5 style="color:red;">@ViewBag.Thongbao</h5>
+</center>

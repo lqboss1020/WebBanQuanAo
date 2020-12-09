@@ -22,9 +22,10 @@ namespace WebBanQuanAo.Models
         public virtual DonHang DonHang { get; set; }
         public virtual SanPham SanPham { get; set; }
         public ChiTietDonHang() { }
-        public ChiTietDonHang(SanPham sanpham,int soLuong) {
+        public ChiTietDonHang(SanPham sanpham,int sl)
+        {
             this.SanPham = sanpham;
-            this.SoLuong = soLuong;
+            this.SoLuong = sl;
         }
     }
 }

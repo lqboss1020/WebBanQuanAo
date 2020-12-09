@@ -158,19 +158,30 @@ namespace WebBanQuanAo.Controllers
             luuDonHang(f);
             return View("ThanhCong");
         }
-        public ActionResult HoaDonPayPal(FormCollection f)
+        public ActionResult HoaDonPayPal()
         {
-            luuDonHang(f);
+            luuDonHangPayPal();
             return View("ThanhCong");
         }
+
+        private void luuDonHangPayPal()
+        {
+            DateTime date = DateTime.Now;
+            string id = date.ToString();
+            DonHang donHang = new DonHang();
+            donHang.TenNguoiNhan = "Paypal"+" "+id;
+            donHang.NgayDat = DateTime.Now;
+            db.DonHangs.Add(donHang);
+            db.SaveChanges();
+            int maDH = donHang.MaDH;
+            ViewBag.maDH = maDH;
+            luuChiTietDonHang(maDH);
+        }
+
         private void luuDonHang(FormCollection f)
         {
             DonHang donHang = new DonHang();
             donHang.TenNguoiNhan = f["TenNguoiNhan"];
-            if (f["PayerID"] != null)
-            {
-                donHang.TenNguoiNhan = f["PayerID"];
-            }
             donHang.NgayDat = DateTime.Now;
             donHang.DiaChi = f["DiaChi"];
             donHang.SoDT = f["SoDT"];
@@ -198,6 +209,7 @@ namespace WebBanQuanAo.Controllers
         }
         public ActionResult ThanhCong()
         {
+            Session.Remove("ChiTietDonHang");
             return View();
         }
     }

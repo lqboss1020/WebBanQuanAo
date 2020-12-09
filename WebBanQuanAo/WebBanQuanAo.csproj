@@ -229,6 +229,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model3.edmx.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -416,6 +417,8 @@
     <Content Include="Views\DonHangs\HoaDon.cshtml" />
     <Content Include="Views\ShoppingChiTietDonHang\Index.cshtml" />
     <Content Include="Views\DonHangs\ThanhCong.cshtml" />
+    <Content Include="Views\Admins\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
