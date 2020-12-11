@@ -20,7 +20,7 @@
                 text: 'Top sản phẩm bán chạy nhất'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{series.name}: <b>{point.y:.1f}cái</b>'
             },
             accessibility: {
                 point: {
@@ -33,7 +33,7 @@
                     cursor: 'pointer',
                     dataLabels: {
                         enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        format: '<b>{point.name}</b>: {point.y:.1f} cái'
                     }
                 }
             },

@@ -6,71 +6,48 @@
 }
 
 <h2>Details</h2>
+<div class="container">
 
-<center>
-    <div>
-        <h4>SanPham</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.TenSP)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TenSP)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.MauSac)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MauSac)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.HinhSP)
-            </dt>
-
-            <dd>
-                @*@Html.DisplayFor(model => model.HinhSP)*@
-                <img src="~/Images/@Model.HinhSP" style="height:150px;width:150px;" />
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.GiaSP)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.GiaSP)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.MoTa)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MoTa)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DanhMuc.TenDM)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.NhaCungCap.TenNCC)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
-            </dd>
-        </dl>
-        <a class="btn btn-success" href="/ShoppingCart/Order?id=@Model.MaSP">Thêm giỏ hàng</a>
-        <a class="btn btn-warning" href="/sanphams/list">Quay về</a>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/Images/@Model.HinhSP" style="height:250px;width:300px;" />
+        </div>
+        <div class="col-md-8">
+            <h2>@Model.TenSP</h2>
+            <div class="row">
+                <div class="col-md-6">Nhà Cung Cấp: @Model.NhaCungCap.TenNCC</div>
+                <div class="col-md-6">Danh Mục: @Model.DanhMuc.TenDM</div>
+            </div>
+            <div class="row">
+                <h1 class="col-md-12" style="text-align:center">@Model.GiaSP $</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="btn btn-success" href="/ShoppingCart/Order?id=@Model.MaSP">Thêm giỏ hàng</a>
+                    <a class="btn btn-warning" href="/sanphams/list">Quay về</a>
+                </div>
+                @*<div class="col-md-6"><a href="~/cart/Buy?id=@Model.MaSach" class="btn btn-info"> Buy </a>
+                    </div>*@
+            </div>
+        </div>
     </div>
-</center>
-
+    <div class="row card">
+        <h2>Thông Tin Sản Phẩm</h2>
+    </div>
+    <div class="row card">
+        <table class="table table-striped">
+            <tr>
+                <td>Mã Sản Phẩm</td>
+                <td>@Model.MaSP</td>
+            </tr>
+            <tr>
+                <td>Màu Sắc</td>
+                <td>@Model.MauSac</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row card">
+        <h2>Mô Tả</h2>
+        <p style="padding:10px;">@Model.MoTa</p>
+    </div>
+</div>

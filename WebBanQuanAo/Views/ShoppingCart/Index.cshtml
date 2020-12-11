@@ -3,15 +3,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
-@model IEnumerable<WebBanQuanAo.Models.ChiTietDonHang>
+@model IEnumerable<WebBanQuanAo.Models.Cart>
 <link href="~/Content/indexgiohang.css" rel="stylesheet" />
 @{
     int tong = 0;
-    List<ChiTietDonHang> chiTietDonHang = new List<ChiTietDonHang>();
-    if (Session["ChiTietDonHang"] == null)
+    List<Cart> carts = new List<Cart>();
+    if (Session["Cart"] == null)
     {
-        chiTietDonHang = new List<ChiTietDonHang>();
-        Session["ChiTietDonHang"] = chiTietDonHang;
+        carts = new List<Cart>();
+        Session["Cart"] = carts;
     }
 }
 <Center><h2>Giỏ Hàng</h2></Center>
@@ -21,22 +21,22 @@
         <table class="table table-hover table-dark">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.SanPham.TenSP)
+                    Tên Sản Phẩm
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SanPham.HinhSP)
+                    Hình Sản Phẩm
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SanPham.GiaSP)
+                    Giá Sản Phẩm
                 </th>
                 <th>Số Lượng</th>
                 <th>Thành Tiền</th>
                 <th></th>
             </tr>
 
-            @foreach (var item in (List<ChiTietDonHang>)Session["ChiTietDonHang"])
+            @foreach (var item in (List<Cart>)Session["Cart"])
             {
-                tong = tong + (item.SoLuong.Value * item.SanPham.GiaSP.Value);
+                tong = tong + (item.Quantity * item.SanPham.GiaSP.Value);
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.SanPham.TenSP)
@@ -49,10 +49,10 @@
                         @Html.DisplayFor(modelItem => item.SanPham.GiaSP)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SoLuong)
+                        @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        @(item.SoLuong*item.SanPham.GiaSP)
+                        @(item.Quantity*item.SanPham.GiaSP)
                     </td>
                     <td>
                         <a href="/ShoppingCart/Del?id=@item.SanPham.MaSP" class="btn btn-danger">Xoá</a>

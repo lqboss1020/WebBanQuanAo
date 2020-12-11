@@ -148,7 +148,7 @@ namespace WebBanQuanAo.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult List(string TenSP, string TenDM)
+        public ActionResult List(int? page,string TenSP, string TenDM,string TenNCC)
         {
             var sanPham = db.SanPhams.Include(s => s.DanhMuc).Include(s => s.NhaCungCap);
             if (!String.IsNullOrEmpty(TenSP))
@@ -159,7 +159,26 @@ namespace WebBanQuanAo.Controllers
             {
                 sanPham = sanPham.Where(s => s.DanhMuc.TenDM.Contains(TenDM));
             }
-            return View(sanPham.ToList());
+            if (!string.IsNullOrEmpty(TenNCC))
+            {
+                sanPham = sanPham.Where(s => s.NhaCungCap.TenNCC.Contains(TenNCC));
+            }
+            int number = 0;
+            if (page != 0)
+            {
+                number = page.GetValueOrDefault();
+            }
+            number = page.GetValueOrDefault() * 4;
+            ViewBag.count = Count(sanPham);
+            //return View(saches.OrderBy(s => s.MaSach).Skip(number).Take(4).ToList());
+            return View(sanPham.OrderBy(s=>s.MaSP).Skip(number).Take(4).ToList());
+        }
+
+        private int Count(IQueryable<SanPham> sanPham)
+        {
+            decimal a = sanPham.Count() / 4;
+            decimal b = Math.Ceiling(a);
+            return Convert.ToInt32(b);
         }
     }
 }

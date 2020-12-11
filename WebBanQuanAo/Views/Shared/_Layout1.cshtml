@@ -7,13 +7,13 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @{ 
-        List<ChiTietDonHang> chiTietDonHang = new List<ChiTietDonHang>();
-        if (Session["ChiTietDonHang"] == null)
+        List<Cart> chiTietDonHang = new List<Cart>();
+        if (Session["Cart"] == null)
         {
-            chiTietDonHang = new List<ChiTietDonHang>();
-            Session["ChiTietDonHang"] = chiTietDonHang;
+            chiTietDonHang = new List<Cart>();
+            Session["Cart"] = chiTietDonHang;
         }
-        var gh = Session["ChiTietDonHang"] as List<ChiTietDonHang>;
+        var gh = Session["Cart"] as List<Cart>;
     }
 </head>
 
@@ -50,7 +50,7 @@
 
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Website Quần Áo</a>
+        <a class="navbar-brand" href="#">Q & M</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,6 +59,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/SanPhams/List">Trang chủ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Danh Mục
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.Action("Menu", "DanhMucs")
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Nhà Cung Cấp
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.Action("Menu", "NhaCungCaps")
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/khachhangs/Create">Đăng ký</a>
@@ -69,20 +85,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Admins/Login">Admin</a>
                 </li>
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" href="#">@Session["Username"]</a>
-                </li>
-                <li class="nav-item">
+                </li>*@
+                @*<li class="nav-item">
                     <a class="nav-link" href="/khachhangs/Logout">Logout</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Danh Mục
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @Html.Action("Menu", "DanhMucs")
-                    </div>
-                </li>
+                </li>*@
+                @if (@Session["Username"] != null)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Session["Username"]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/khachhangs/Edit/@Session["MaKH"]">Thay đổi thông tin tài khoản</a>
+                            <a class="dropdown-item" href="/khachhangs/Logout">Logout</a>
+                        </div>
+                    </li>
+                }
                 <li class="nav-item">
                     <a class="nav-link" href="/ShoppingCart/Index">
                         <img src="~/Images/cart.png" style="width:35px;height:30px;" /> @gh.Count
@@ -96,6 +116,16 @@
         </div>
     </nav>
     @RenderBody()
+    <br />
+    <hr />
+    <div class="row" style="background-color:dimgray;color:white;">
+        <div class="col-sm-6" >
+            <center> <h1>Lý Quyền</h1></center>          
+        </div>
+        <div class="col-sm-6">
+            <center><h1>Hứa Châu Thảo My</h1></center>
+        </div>
+    </div>
 </body>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")

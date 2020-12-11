@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 @{
-    var ds = Session["ChiTietDonHang"] as List<ChiTietDonHang>;
+    var ds = Session["Cart"] as List<Cart>;
 }
 <center><h1>Thanh Toán Trực Tuyến</h1></center>
 <div class="row">
@@ -22,7 +22,7 @@
                     <input type="hidden" name="@Url.Content("item_name_"+(i+1))" value="@ds[i].SanPham.TenSP" />
                     <input type="hidden" name="@Url.Content("item_number_"+(i+1))" value="@ds[i].SanPham.MaSP" />
                     <input type="hidden" name="@Url.Content("amount_"+(i+1))" value="@ds[i].SanPham.GiaSP" />
-                    <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].SoLuong" />
+                    <input type="hidden" name="@Url.Content("quantity_"+(i+1))" value="@ds[i].Quantity" />
                 }
                 <div class="row">
                     <div class="col-sm-3" style="margin:10px;">

@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\ChiNhanhsController.cs" />
+    <Compile Include="Controllers\ChiTietDonHangsController.cs" />
     <Compile Include="Controllers\DanhMucsController.cs" />
     <Compile Include="Controllers\DonHangsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -409,20 +410,25 @@
     <Content Include="Views\DanhMucs\Menu.cshtml" />
     <Content Include="Views\KhachHangs\Login.cshtml" />
     <Content Include="Views\PayPal\ThongBao.cshtml" />
+    <Content Include="Views\ShoppingChiTietDonHang\Index.cshtml" />
+    <Content Include="Views\Admins\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\DonHangs\Create.cshtml" />
     <Content Include="Views\DonHangs\Delete.cshtml" />
     <Content Include="Views\DonHangs\Details.cshtml" />
     <Content Include="Views\DonHangs\Edit.cshtml" />
     <Content Include="Views\DonHangs\Index.cshtml" />
     <Content Include="Views\DonHangs\HoaDon.cshtml" />
-    <Content Include="Views\ShoppingChiTietDonHang\Index.cshtml" />
     <Content Include="Views\DonHangs\ThanhCong.cshtml" />
-    <Content Include="Views\Admins\Login.cshtml" />
-    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\ChiTietDonHangs\Create.cshtml" />
+    <Content Include="Views\ChiTietDonHangs\Delete.cshtml" />
+    <Content Include="Views\ChiTietDonHangs\Details.cshtml" />
+    <Content Include="Views\ChiTietDonHangs\Edit.cshtml" />
+    <Content Include="Views\ChiTietDonHangs\Index.cshtml" />
+    <Content Include="Views\NhaCungCaps\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DonHang\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebBanQuanAo.Models.NhaCungCap>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Menu</title>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        <a class="dropdown-item" href="/Sanphams/List?TenNCC=@item.TenNCC"> @Html.DisplayFor(modelItem => item.TenNCC)</a>
+    }
+</body>
+</html>

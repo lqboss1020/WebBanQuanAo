@@ -119,5 +119,12 @@ namespace WebBanQuanAo.Controllers
             }
             base.Dispose(disposing);
         }
+        [OutputCache(Duration = 5)]
+        public ActionResult Menu()
+        {
+            var query = from x in db.NhaCungCaps
+                        select x;
+            return View(query.ToList());
+        }
     }
 }

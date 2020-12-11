@@ -9,10 +9,10 @@ namespace WebBanQuanAo.Controllers
         WebQA2Entities db = new WebQA2Entities();
         public ActionResult Index()
         {
-            //if (Session["Admin"]==null)
-            //{
-            //    return RedirectToAction("Login","Admins");
-            //}
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("Login", "Admins");
+            }
             return View();
         }
 

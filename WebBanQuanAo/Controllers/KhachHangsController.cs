@@ -80,8 +80,10 @@ namespace WebBanQuanAo.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(khachHang).State = EntityState.Modified;
+                Session["Username"] = "Tên tài khoản : " + khachHang.TenKH;
+                Session["MaKH"] = khachHang.MaKH;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List", "SanPhams");
             }
             return View(khachHang);
         }
@@ -140,6 +142,7 @@ namespace WebBanQuanAo.Controllers
         public ActionResult Logout()
         {
             Session.Remove("Username");
+            Session.Remove("MaKH");
             return RedirectToAction("List", "SanPhams");
         }
     }

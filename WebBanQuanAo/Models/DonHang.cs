@@ -27,6 +27,7 @@ namespace WebBanQuanAo.Models
         public string SoDT { get; set; }
         public string DiaChi { get; set; }
         public System.DateTime NgayDat { get; set; }
+        public string TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
